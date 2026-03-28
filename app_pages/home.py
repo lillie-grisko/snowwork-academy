@@ -20,6 +20,22 @@ completed_lessons = get_completed_lessons()
 completed_modules = get_completed_modules()
 pct_complete = round(len(completed_lessons) / TOTAL_LESSONS * 100) if TOTAL_LESSONS > 0 else 0
 
+st.title("SnowWork Academy")
+st.markdown("Master SnowWork (Project Falcon) — Snowflake's autonomous AI platform — and turn your daily selling workflows into automated, data-driven actions. This self-paced course takes you from understanding what SnowWork is to building custom skills that match your unique selling rhythm.")
+
+with st.container(border=True):
+    st.markdown("**By the end of this course, you will be able to:**")
+    st.markdown("""
+- **Explain** what SnowWork is and how it differs from CoCo, Intelligence, and Raven
+- **Execute** account research, prospect briefs, and consumption analysis using SnowWork skills
+- **Prepare** for customer meetings in under 10 minutes using a repeatable SnowWork workflow
+- **Analyze** pipeline health, deal hygiene, and expansion signals with SnowWork intelligence skills
+- **Create** custom skills tailored to your personal selling rhythm and territory
+- **Choose** the right AI tool for any task using the SnowWork decision framework
+""")
+
+st.space("small")
+
 with st.container(horizontal=True):
     st.metric(
         f"{len(completed_modules)} of {len(MODULES)}",
