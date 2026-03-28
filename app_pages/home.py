@@ -26,12 +26,12 @@ st.markdown("Master SnowWork (Project Falcon) — Snowflake's autonomous AI plat
 with st.container(border=True):
     st.markdown("**By the end of this course, you will be able to:**")
     st.markdown("""
-- **Explain** what SnowWork is and how it differs from CoCo, Intelligence, and Raven
-- **Execute** account research, prospect briefs, and consumption analysis using SnowWork skills
-- **Prepare** for customer meetings in under 10 minutes using a repeatable SnowWork workflow
-- **Analyze** pipeline health, deal hygiene, and expansion signals with SnowWork intelligence skills
-- **Create** custom skills tailored to your personal selling rhythm and territory
-- **Choose** the right AI tool for any task using the SnowWork decision framework
+- **Explain** what SnowWork is and how it differs from CoCo, Intelligence, and Raven — *Sales Tooling Fluency*
+- **Execute** account research, prospect briefs, and consumption analysis using SnowWork skills — *Account Intelligence & Territory Planning*
+- **Prepare** for customer meetings in under 10 minutes using a repeatable SnowWork workflow — *Meeting Preparation & MEDDPICC+ Qualification*
+- **Analyze** pipeline health, deal hygiene, and expansion signals with SnowWork intelligence skills — *Pipeline Management & Forecasting*
+- **Create** custom skills tailored to your personal selling rhythm and territory — *Time Management & Operating Rhythm*
+- **Choose** the right AI tool for any task using the SnowWork decision framework — *Sales Process Execution*
 """)
 
 st.space("small")
@@ -39,22 +39,22 @@ st.space("small")
 with st.container(horizontal=True):
     st.metric(
         f"{len(completed_modules)} of {len(MODULES)}",
-        "modules complete",
+        "Modules Complete",
         border=True,
     )
     st.metric(
         f"{len(completed_lessons)} of {TOTAL_LESSONS}",
-        "lessons complete",
+        "Lessons Complete",
         border=True,
     )
     st.metric(
         f"{pct_complete}%",
-        "course progress",
+        "Course Progress",
         border=True,
     )
     st.metric(
         f"~{TOTAL_DURATION} min",
-        "total course time",
+        "Total Course Time",
         border=True,
     )
 
