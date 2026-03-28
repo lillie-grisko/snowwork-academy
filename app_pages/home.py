@@ -124,11 +124,7 @@ for i, m in enumerate(MODULES):
             elif done_count > 0:
                 st.badge(f"{done_count}/{total_count}", icon=":material/pending:", color="orange")
             else:
-                prev_complete = (m["id"] == 1) or ((m["id"] - 1) in completed_modules)
-                if prev_complete:
-                    st.badge("Ready", icon=":material/play_circle:", color="blue")
-                else:
-                    st.badge("Locked", color="gray")
+                st.badge("Ready", icon=":material/play_circle:", color="blue")
 
             st.markdown(f"**{m['icon']} {m['title']}**")
             st.caption(f"{m['duration_min']} min  ·  {total_count} lesson{'s' if total_count > 1 else ''}")
