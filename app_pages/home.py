@@ -20,11 +20,24 @@ completed_lessons = get_completed_lessons()
 completed_modules = get_completed_modules()
 pct_complete = round(len(completed_lessons) / TOTAL_LESSONS * 100) if TOTAL_LESSONS > 0 else 0
 
-st.title("SnowWork Academy")
-st.markdown("Master SnowWork (Project Falcon) — Snowflake's autonomous AI platform — and turn your daily selling workflows into automated, data-driven actions. This self-paced course takes you from understanding what SnowWork is to building custom skills that match your unique selling rhythm.")
+st.html("""
+<div style="
+    background: linear-gradient(135deg, #29B5E8 0%, #1B6B9A 100%);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    margin-bottom: 1rem;
+">
+    <h1 style="color: white; margin: 0 0 0.5rem 0; font-size: 2.2rem; font-weight: 700;">
+        SnowWork Academy
+    </h1>
+    <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 1.05rem; line-height: 1.6; max-width: 700px;">
+        Master SnowWork (Project Falcon) &mdash; Snowflake's autonomous AI platform &mdash; and turn your daily selling workflows into automated, data-driven actions.
+    </p>
+</div>
+""")
 
 with st.container(border=True):
-    st.markdown("**By the end of this course, you will be able to:**")
+    st.markdown("##### :material/school: Learning Objectives")
     st.markdown("""
 - **Explain** what SnowWork is and how it differs from CoCo, Intelligence, and Raven — *Sales Tooling Fluency*
 - **Execute** account research, prospect briefs, and consumption analysis using SnowWork skills — *Account Intelligence & Territory Planning*
@@ -73,8 +86,8 @@ if next_lesson:
     with st.container(border=True):
         col1, col2 = st.columns([4, 1], vertical_alignment="center")
         with col1:
-            st.markdown(f"**Continue learning**")
-            st.caption(f"Module {next_module['id']}: {next_module['title']} \u2014 Lesson: {next_lesson['title']}")
+            st.markdown(f"##### :material/play_circle: Continue Learning")
+            st.caption(f"Module {next_module['id']}: {next_module['title']} — Lesson: {next_lesson['title']}")
         with col2:
             if st.button("Resume", icon=":material/play_arrow:", type="primary", use_container_width=True):
                 st.session_state.current_lesson = (next_module["id"], next_lesson["id"])
@@ -82,11 +95,16 @@ if next_lesson:
 else:
     st.success("You've completed all lessons!", icon=":material/celebration:")
 
-st.subheader("Modules")
+st.markdown("##### :material/view_module: Modules")
 
-cols = st.columns(len(MODULES))
+row1 = st.columns(3)
+row2 = st.columns(3)
+all_cols = row1 + row2
+
 for i, m in enumerate(MODULES):
-    with cols[i]:
+    if i >= len(all_cols):
+        break
+    with all_cols[i]:
         with st.container(border=True):
             lesson_ids = {l["id"] for l in m["lessons"]}
             done_count = len(lesson_ids.intersection(completed_lessons))
@@ -104,10 +122,11 @@ for i, m in enumerate(MODULES):
                 else:
                     st.badge("Locked", color="gray")
 
-            st.markdown(f"**{m['title']}**")
-            st.caption(f"{m['duration_min']} min  \u00b7  {total_count} lesson{'s' if total_count > 1 else ''}")
+            st.markdown(f"**{m['icon']} {m['title']}**")
+            st.caption(f"{m['duration_min']} min  ·  {total_count} lesson{'s' if total_count > 1 else ''}")
+            st.caption(m["description"])
 
-            if st.button("Open", key=f"open_mod_{m['id']}", use_container_width=True, icon=m["icon"]):
+            if st.button("Start", key=f"open_mod_{m['id']}", use_container_width=True, type="primary"):
                 first_lesson = m["lessons"][0]
                 st.session_state.current_lesson = (m["id"], first_lesson["id"])
                 st.switch_page("app_pages/learn.py")

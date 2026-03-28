@@ -1,6 +1,22 @@
 import streamlit as st
 from course_data import TOOL_DATA
 
+st.html("""
+<div style="
+    background: linear-gradient(135deg, #29B5E8 0%, #1B6B9A 100%);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1rem;
+">
+    <h2 style="color: white; margin: 0 0 0.25rem 0; font-size: 1.6rem; font-weight: 600;">
+        Which Tool Should I Use?
+    </h2>
+    <p style="color: rgba(255,255,255,0.85); margin: 0; font-size: 0.95rem;">
+        Select a task to get the right tool recommendation.
+    </p>
+</div>
+""")
+
 task_options = [
     "Account research",
     "Meeting prep",
@@ -36,9 +52,10 @@ if matching_tools:
         st.badge(best_tool["audience"], color="blue")
 
     if len(matching_tools) > 1:
-        st.caption("Other options:")
+        st.markdown("##### Also Consider")
         for tool, _ in matching_tools[1:]:
-            st.markdown(f"- {tool['icon']} **{tool['name']}** \u2014 {tool['best_for']}")
+            with st.container(border=True):
+                st.markdown(f"{tool['icon']} **{tool['name']}** — {tool['best_for']}")
 
     not_recommended = [t for t in TOOL_DATA if t["name"] != best_tool["name"] and t not in [x[0] for x in matching_tools]]
     if not_recommended:
@@ -49,15 +66,15 @@ if matching_tools:
 else:
     st.info("Select a task above to get a tool recommendation.", icon=":material/info:")
 
-st.space("medium")
+st.divider()
 
-with st.expander("Full tool comparison", icon=":material/compare:"):
+with st.expander("Full Tool Comparison", icon=":material/compare:"):
     import pandas as pd
 
     df = pd.DataFrame([
         {
             "Tool": t["name"],
-            "Best for": t["best_for"],
+            "Best For": t["best_for"],
             "Audience": t["audience"],
             "Depth": t["depth"],
         }
