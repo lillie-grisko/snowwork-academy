@@ -38,14 +38,33 @@ st.html("""
 
 with st.container(border=True):
     st.markdown("##### :material/school: Learning Objectives")
+    st.markdown(
+        "Each objective maps to Snowflake's official AE competency framework "
+        "(*Commercial AE Expectations*, *MEDDPICC+*, *Territory Planning & Prioritization*)."
+    )
+
     st.markdown("""
-- **Explain** what SnowWork is and how it differs from CoCo, Intelligence, and Raven — *Sales Tooling Fluency*
-- **Execute** account research, prospect briefs, and consumption analysis using SnowWork skills — *Account Intelligence & Territory Planning*
-- **Prepare** for customer meetings in under 10 minutes using a repeatable SnowWork workflow — *Meeting Preparation & MEDDPICC+ Qualification*
-- **Analyze** pipeline health, deal hygiene, and expansion signals with SnowWork intelligence skills — *Pipeline Management & Forecasting*
-- **Create** custom skills tailored to your personal selling rhythm and territory — *Time Management & Operating Rhythm*
-- **Choose** the right AI tool for any task using the SnowWork decision framework — *Sales Process Execution*
+- **Explain** what SnowWork is and how it differs from CoCo, Intelligence, and Raven
+  — *Snowflake Acumen:* Understand what Snowflake does and where we play; identify how AI tools fit the product ecosystem
+- **Execute** account research, prospect briefs, and consumption analysis using SnowWork skills
+  — *Account Management · Territory Planning:* Know your customer and industry; tiering & prioritization; analyze account data to segment and stack-rank accounts
+- **Prepare** for customer meetings in under 10 minutes using a repeatable SnowWork workflow
+  — *Sales Acumen · MEDDPICC+:* Pre-call planning; discovery; Teach, Tailor, Take Control; validate Identified Pain, Champion, and Metrics
+- **Analyze** pipeline health, deal hygiene, and expansion signals with SnowWork intelligence skills
+  — *Deal Execution · Pipeline Generation:* Manage deals with risk removed; forecast with MEDDPICC rigor; identify whitespace and drive new use cases
+- **Create** custom skills tailored to your personal selling rhythm and territory
+  — *Time Management · Operating Rhythm:* Balance activities across accounts to maximize ROI on time; embed territory plan management into daily cadence
+- **Choose** the right AI tool for any task using the SnowWork decision framework
+  — *Business Acumen · Project Management:* Understand business situations to make sound tool choices; route the right resources to drive urgency
 """)
+
+    st.caption(
+        "Sources: "
+        "[Commercial AE Expectations](https://snowflake.seismic.com/Link/Content/DCmjPDmddRQdJ87QF4gBW9Q7Dp4P) · "
+        "[MEDDPICC+](https://snowflake.seismic.com/Link/Content/DCjP2DpgD3XQJ8mG24Q4WTJjQ89B) · "
+        "[Territory Planning & Prioritization](https://snowflake.seismic.com/Link/Content/DC3j674m9QJRdG92Rj9H8q7X2Wh8) · "
+        "[Snowflake Blueprint](https://snowflake.seismic.com/Link/Content/DCQjJcM76FfDD82B9H9dpXdJQ2Jj)"
+    )
 
 st.space("small")
 
